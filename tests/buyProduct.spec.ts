@@ -32,7 +32,7 @@ test('kupienie produktu przez użytkownika', async ({ page }) => {
     await page.locator('#order_bill_address_attributes_state_id').selectOption('Zachodniopomorskie');
     await page.getByText('Order use billing').check();
     await page.getByRole('button', { name: 'Save and Continue' }).click();
-    await page.locator('#shipping_method span').nth(2).click();
+    await page.locator('label').filter({ hasText: 'Express WORLD $' }).locator('span').first().click();
     await page.getByRole('button', { name: 'Save and Continue' }).click();
     await page.locator('label').filter({ hasText: 'Check' }).locator('span').click();
     await page.getByRole('button', { name: 'Save and Continue' }).click();

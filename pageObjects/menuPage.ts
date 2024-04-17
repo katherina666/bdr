@@ -8,6 +8,6 @@ export class MenuPage {
     }
     async goToMenu(menuLink: string, menuName: string) {
         await this.page.getByRole('link', { name: menuLink }).click();
-      await expect(this.page.getByText(menuName, { exact: true }).nth(1)).toBeVisible();
+        await expect(this.page.getByRole('link', { name: menuName, exact: true })).toBeVisible();
     }
 }

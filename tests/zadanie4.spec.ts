@@ -18,8 +18,6 @@ test('kupienie produktu przez użytkownika', async ({ page }) => {
     await product.choseProduct('Denim Shirt Denim Shirt $', 'Denim Shirt','L')
     await page.getByRole('button', { name: 'Add To Cart' }).click();
     await page.getByRole('link', { name: 'Checkout' }).click();
-    await page.goto('https://spree-multi-vendor-demo.herokuapp.com/checkout/registration');
-    await page.locator('#order_email').click();
     await page.locator('#order_email').fill('kasia@test.pl');
     await page.getByRole('button', { name: 'Continue as a guest' }).click();
     await page.locator('css=#order_bill_address_attributes_firstname').fill('kasia');
@@ -30,7 +28,7 @@ test('kupienie produktu przez użytkownika', async ({ page }) => {
     await page.locator('css=#order_bill_address_attributes_phone').fill('666666666');
     await page.locator('css=#order_bill_address_attributes_country_id').selectOption('Poland');
     await page.locator('css=#order_bill_address_attributes_state_id').selectOption('Zachodniopomorskie');
-    await page.getByText('Order use billing').check();
+    await page.getByText('Order use billing').uncheck();
     await page.locator('css=#order_ship_address_attributes_firstname').fill('paweł');
     await page.locator('css=#order_ship_address_attributes_lastname').fill('gołąbek');
     await page.locator('css=#order_ship_address_attributes_address1').fill('testowa 666');

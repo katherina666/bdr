@@ -18,8 +18,6 @@ test('kupienie produktu przez użytkownika', async ({ page }) => {
     await product.choseProduct('Denim Shirt Denim Shirt $', 'Denim Shirt','L')
     await page.getByRole('button', { name: 'Add To Cart' }).click();
     await page.getByRole('link', { name: 'Checkout' }).click();
-    await page.goto('https://spree-multi-vendor-demo.herokuapp.com/checkout/registration');
-    await page.locator('#order_email').click();
     await page.locator('#order_email').fill('kasia@test.pl');
     await page.getByRole('button', { name: 'Continue as a guest' }).click();
     await page.locator('css=#order_bill_address_attributes_lastname').fill('kasia');

@@ -1,5 +1,5 @@
-import { faker, fakerPL } from '@faker-js/faker';
-import { test, expect } from '@playwright/test';
+import { fakerPL } from '@faker-js/faker';
+import { test } from '@playwright/test';
 
 test('stworzenie nowego sprzedawcy', async ({ page }) => {
   await page.goto('https://spree-multi-vendor-demo.herokuapp.com/');

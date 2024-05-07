@@ -35,8 +35,8 @@ test('kupienie produktu przez użytkownika', async ({ page }) => {
     await page.locator('css=#order_ship_address_attributes_city').fill('szczecin');
     await page.locator('css=#order_ship_address_attributes_zipcode').fill('66-777');
     await page.locator('css=#order_ship_address_attributes_phone').fill('123456789');
-    await page.locator('css=#order_bill_address_attributes_country_id').selectOption('Poland');
-    await page.locator('css=#order_bill_address_attributes_state_id').selectOption('Zachodniopomorskie');
+    await page.locator('css=#order_ship_address_attributes_country_id').selectOption('Poland');
+    await page.locator('css=#order_ship_address_attributes_state_id').selectOption('Zachodniopomorskie');
     await page.getByRole('button', { name: 'Save and Continue' }).click();
     await page.locator('label').filter({ hasText: 'Express WORLD $' }).locator('span').first().click();
     await page.getByRole('button', { name: 'Save and Continue' }).click();
